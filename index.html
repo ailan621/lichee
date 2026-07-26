@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高州荔枝</title>
+    <style id="theme-vars">
+/* ============================================================
+   Gaozhou Lychee Promo — colors_and_type.css
+   Free-explore mode · single brand hue (lychee red) · warm light
+   ============================================================ */
+
+:root {
+  /* ---- Core palette (warm light) ---- */
+  --bg: #FAF5EC;
+  --surface: #FFFFFF;
+  --surface-2: #F3EBDC;
+  --surface-3: #EADFCC;
+
+  --ink: #2A1A12;
+  --ink-2: #6B5644;
+  --ink-3: #9E8B74;
+
+  --line: #E6D9C4;
+  --line-2: #D4C3A8;
+
+  /* ---- Single brand hue (lychee red) ---- */
+  --brand: #C8323C;
+  --brand-strong: #DB454F;
+  --brand-soft: #A82832;
+  --brand-ink: #FFF7EE;
+  --brand-tint: rgba(200, 50, 60, 0.08);
+  --brand-tint-2: rgba(200, 50, 60, 0.16);
+
+  /* ---- State colors (semantic only) ---- */
+  --state-success: #4E8B5A;
+  --state-warning: #D49A3A;
+  --state-error: #C8323C;
+  --state-info: #4A7A9B;
+
+  /* ---- Radius scale ---- */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  /* ---- Shadows (subtle, warm) ---- */
+  --shadow-1: 0 1px 2px rgba(74, 40, 20, 0.04);
+  --shadow-2: 0 8px 24px -8px rgba(74, 40, 20, 0.12);
+  --shadow-3: 0 24px 60px -20px rgba(74, 40, 20, 0.20);
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
+
+/* ============================================================
+   Semantic aliases — resolvable by apply-html-head-contract.mjs
+   Prefix: gl
+   ============================================================ */
+:root {
+  --gl-background: var(--bg);
+  --gl-foreground: var(--ink);
+
+  --gl-card: var(--surface);
+  --gl-card-foreground: var(--ink);
+
+  --gl-popover: var(--surface);
+  --gl-popover-foreground: var(--ink);
+
+  --gl-primary: var(--brand);
+  --gl-primary-foreground: var(--brand-ink);
+
+  --gl-muted: var(--surface-2);
+  --gl-muted-foreground: var(--ink-2);
+
+  --gl-border: var(--line);
+  --gl-input: var(--line-2);
+  --gl-ring: var(--brand);
+
+  --gl-radius-sm: var(--r-sm);
+  --gl-radius-md: var(--r-md);
+  --gl-radius-lg: var(--r-lg);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--gl-background);
+    --color-foreground: var(--gl-foreground);
+    --color-card: var(--gl-card);
+    --color-card-foreground: var(--gl-card-foreground);
+    --color-popover: var(--gl-popover);
+    --color-popover-foreground: var(--gl-popover-foreground);
+    --color-primary: var(--gl-primary);
+    --color-primary-foreground: var(--gl-primary-foreground);
+    --color-muted: var(--gl-muted);
+    --color-muted-foreground: var(--gl-muted-foreground);
+    --color-border: var(--gl-border);
+    --color-input: var(--gl-input);
+    --color-ring: var(--gl-ring);
+    --radius-sm: var(--gl-radius-sm);
+    --radius-md: var(--gl-radius-md);
+    --radius-lg: var(--gl-radius-lg);
+  }
+  @layer base {
+    body { background: var(--gl-background); color: var(--gl-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--gl-background); }
+      .text-background { color: var(--gl-background); }
+      .border-background { border-color: var(--gl-background); }
+      .ring-background { --tw-ring-color: var(--gl-background); }
+      .bg-foreground { background-color: var(--gl-foreground); }
+      .text-foreground { color: var(--gl-foreground); }
+      .border-foreground { border-color: var(--gl-foreground); }
+      .ring-foreground { --tw-ring-color: var(--gl-foreground); }
+      .bg-card { background-color: var(--gl-card); }
+      .text-card { color: var(--gl-card); }
+      .border-card { border-color: var(--gl-card); }
+      .ring-card { --tw-ring-color: var(--gl-card); }
+      .bg-card-foreground { background-color: var(--gl-card-foreground); }
+      .text-card-foreground { color: var(--gl-card-foreground); }
+      .border-card-foreground { border-color: var(--gl-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--gl-card-foreground); }
+      .bg-popover { background-color: var(--gl-popover); }
+      .text-popover { color: var(--gl-popover); }
+      .border-popover { border-color: var(--gl-popover); }
+      .ring-popover { --tw-ring-color: var(--gl-popover); }
+      .bg-popover-foreground { background-color: var(--gl-popover-foreground); }
+      .text-popover-foreground { color: var(--gl-popover-foreground); }
+      .border-popover-foreground { border-color: var(--gl-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--gl-popover-foreground); }
+      .bg-primary { background-color: var(--gl-primary); }
+      .text-primary { color: var(--gl-primary); }
+      .border-primary { border-color: var(--gl-primary); }
+      .ring-primary { --tw-ring-color: var(--gl-primary); }
+      .bg-primary-foreground { background-color: var(--gl-primary-foreground); }
+      .text-primary-foreground { color: var(--gl-primary-foreground); }
+      .border-primary-foreground { border-color: var(--gl-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--gl-primary-foreground); }
+      .bg-muted { background-color: var(--gl-muted); }
+      .text-muted { color: var(--gl-muted); }
+      .border-muted { border-color: var(--gl-muted); }
+      .ring-muted { --tw-ring-color: var(--gl-muted); }
+      .bg-muted-foreground { background-color: var(--gl-muted-foreground); }
+      .text-muted-foreground { color: var(--gl-muted-foreground); }
+      .border-muted-foreground { border-color: var(--gl-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--gl-muted-foreground); }
+      .bg-border { background-color: var(--gl-border); }
+      .text-border { color: var(--gl-border); }
+      .border-border { border-color: var(--gl-border); }
+      .ring-border { --tw-ring-color: var(--gl-border); }
+      .bg-input { background-color: var(--gl-input); }
+      .text-input { color: var(--gl-input); }
+      .border-input { border-color: var(--gl-input); }
+      .ring-input { --tw-ring-color: var(--gl-input); }
+      .bg-ring { background-color: var(--gl-ring); }
+      .text-ring { color: var(--gl-ring); }
+      .border-ring { border-color: var(--gl-ring); }
+      .ring-ring { --tw-ring-color: var(--gl-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+      <!-- ============ 0. STICKY NAV ============ -->
+      <nav id="site-nav" class="fixed top-0 left-0 w-full z-50">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8 flex items-center justify-between" style="height:68px;">
+          <a href="#hero" class="flex items-center gap-2 font-serif text-xl">
+            <i data-lucide="leaf" style="width:22px;height:22px;color:var(--brand);flex-shrink:0;"></i>
+            <span class="gl-brand-text">高州荔枝</span>
+          </a>
+          <div class="hidden md:flex items-center gap-7 lg:gap-9">
+            <a href="#story" class="gl-nav-link">荔乡故事</a>
+            <a href="#varieties" class="gl-nav-link">荔枝品种</a>
+            <a href="#origin" class="gl-nav-link">产地溯源</a>
+            <a href="#process" class="gl-nav-link">鲜摘直达</a>
+          </div>
+          <a href="#cta-band" class="gl-btn-primary inline-flex items-center gap-1.5 text-sm font-medium" style="padding:10px 20px;">
+            立即订购
+            <i data-lucide="arrow-right" style="width:15px;height:15px;"></i>
+          </a>
+        </div>
+      </nav>
+
+      <!-- ============ 1. HERO ============ -->
+      <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+        <img src="assets/hero-lychee.jpg" alt="高州荔枝鲜果挂枝" id="hero-bg" class="gl-hero-img absolute inset-0 w-full" style="height:120%;top:-10%;object-fit:cover;will-change:transform;" />
+        <div class="absolute inset-0 gl-hero-overlay"></div>
+        <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-8 w-full pt-16">
+          <div class="max-w-2xl">
+            <span class="gl-hero-eyebrow inline-flex items-center gap-2 r-pill px-4 py-1.5 text-sm font-medium" style="background:var(--brand-tint-2);color:var(--surface);backdrop-filter:blur(4px);">
+              <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+              千年荔乡 · 广东高州
+            </span>
+            <h1 class="gl-hero-title font-serif mt-6" style="font-size:clamp(48px,8vw,96px);line-height:1.05;color:var(--surface);text-wrap:balance;letter-spacing:0.02em;">高州荔枝</h1>
+            <p class="gl-hero-subtitle mt-6 text-lg lg:text-xl max-w-xl" style="color:var(--surface);opacity:0.92;line-height:1.75;text-wrap:balance;">一骑红尘妃子笑，千年古树结鲜红。现摘现发，冷链直达，把岭南夏日的鲜甜送到你家。</p>
+            <div class="gl-hero-cta flex flex-wrap items-center gap-4 mt-10">
+              <a href="#cta-band" class="gl-btn-primary inline-flex items-center gap-2 px-7 py-3.5 r-md text-base font-medium">
+                立即订购
+                <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+              </a>
+              <a href="#story" class="gl-btn-ghost-hero inline-flex items-center gap-2 px-7 py-3.5 r-md text-base font-medium">
+                探索荔乡
+                <i data-lucide="chevron-down" style="width:18px;height:18px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="gl-scroll-cue absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <i data-lucide="chevron-down" style="width:28px;height:28px;color:var(--surface);opacity:0.75;"></i>
+        </div>
+      </section>
+
+      <!-- ============ 2. MARQUEE BAND ============ -->
+      <div class="gl-marquee-band overflow-hidden" style="background:var(--brand);">
+        <div class="gl-marquee-track flex items-center whitespace-nowrap" style="height:48px;color:var(--brand-ink);font-size:15px;font-weight:500;letter-spacing:0.04em;">
+          <span class="gl-marquee-content">妃子笑　·　桂味　·　糯米糍　·　白糖罂　·　现摘现发　·　冷链直达　·　核小肉厚　·　鲜甜多汁　·　千年古荔　·　</span>
+          <span class="gl-marquee-content" aria-hidden="true">妃子笑　·　桂味　·　糯米糍　·　白糖罂　·　现摘现发　·　冷链直达　·　核小肉厚　·　鲜甜多汁　·　千年古荔　·　</span>
+        </div>
+      </div>
+
+      <!-- ============ 3. BRAND STORY ============ -->
+      <section id="story" class="py-20 lg:py-28">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div data-reveal>
+              <span class="gl-eyebrow inline-flex items-center gap-2 text-sm font-medium" style="color:var(--brand);">
+                <span class="gl-eyebrow-dot"></span>荔乡故事
+              </span>
+              <h2 class="font-serif mt-4" style="font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);text-wrap:balance;">千年荔乡</h2>
+              <p class="mt-6 text-base lg:text-lg" style="color:var(--ink-2);line-height:1.9;">高州地处广东南部，亚热带季风气候温润，是荔枝原产地之一，栽培历史逾两千年。根子镇古荔园存有千年古树，至今仍年年挂果，根深叶茂，果红如玉。一骑红尘妃子笑，无人知是荔枝来——千年前的盛唐贡品，今日仍从这片土地鲜摘直达。</p>
+              <div class="flex flex-wrap gap-10 mt-10">
+                <div>
+                  <div class="font-serif" style="font-size:32px;color:var(--brand);font-variant-numeric:tabular-nums;">2000<span style="font-size:20px;">+</span> 年</div>
+                  <div class="text-sm mt-1" style="color:var(--ink-3);">栽培史</div>
+                </div>
+                <div>
+                  <div class="font-serif" style="font-size:32px;color:var(--brand);font-variant-numeric:tabular-nums;">1000<span style="font-size:20px;">+</span> 棵</div>
+                  <div class="text-sm mt-1" style="color:var(--ink-3);">千年古树</div>
+                </div>
+              </div>
+            </div>
+            <div data-reveal class="relative">
+              <div class="gl-story-img-wrap r-lg overflow-hidden" style="box-shadow:var(--shadow-2);">
+                <img src="assets/lychee-flesh.jpg" alt="剥开的荔枝果肉特写" class="w-full h-full object-cover" style="display:block;aspect-ratio:4/5;" />
+              </div>
+              <div class="gl-story-badge absolute -bottom-5 -left-5 r-lg hidden sm:flex items-center gap-3 px-5 py-4" style="background:var(--surface);box-shadow:var(--shadow-2);">
+                <i data-lucide="award" style="width:24px;height:24px;color:var(--brand);"></i>
+                <div>
+                  <div class="text-sm font-medium" style="color:var(--ink);">盛唐贡品</div>
+                  <div class="text-xs" style="color:var(--ink-3);">千年传承</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 4. VARIETIES ============ -->
+      <section id="varieties" class="py-20 lg:py-28" style="background:var(--surface-2);">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+            <span class="gl-eyebrow inline-flex items-center gap-2 text-sm font-medium" style="color:var(--brand);">
+              <span class="gl-eyebrow-dot"></span>品种之选
+            </span>
+            <h2 class="font-serif mt-4" style="font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);text-wrap:balance;">荔枝品种</h2>
+            <p class="mt-3 text-base" style="color:var(--ink-3);">早中晚熟，各有清甜。</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <article class="gl-variety-card r-lg p-6 flex flex-col" data-reveal style="transition-delay:0ms;">
+              <div class="flex items-center justify-between mb-5">
+                <span class="gl-tag r-md px-2.5 py-1 text-xs font-medium">早熟</span>
+                <i data-lucide="cherry" class="gl-card-icon" style="width:24px;height:24px;color:var(--brand);"></i>
+              </div>
+              <h3 class="font-serif mb-3" style="font-size:24px;color:var(--ink);">妃子笑</h3>
+              <p class="text-sm leading-relaxed" style="color:var(--ink-2);">果大核小，鲜红醒目，肉厚多汁，盛唐贡品之名。</p>
+            </article>
+            <article class="gl-variety-card r-lg p-6 flex flex-col" data-reveal style="transition-delay:100ms;">
+              <div class="flex items-center justify-between mb-5">
+                <span class="gl-tag r-md px-2.5 py-1 text-xs font-medium">中熟</span>
+                <i data-lucide="sparkles" class="gl-card-icon" style="width:24px;height:24px;color:var(--brand);"></i>
+              </div>
+              <h3 class="font-serif mb-3" style="font-size:24px;color:var(--ink);">桂味</h3>
+              <p class="text-sm leading-relaxed" style="color:var(--ink-2);">桂花清香，肉脆清甜，核小味浓，老饕之选。</p>
+            </article>
+            <article class="gl-variety-card r-lg p-6 flex flex-col" data-reveal style="transition-delay:200ms;">
+              <div class="flex items-center justify-between mb-5">
+                <span class="gl-tag r-md px-2.5 py-1 text-xs font-medium">中晚熟</span>
+                <i data-lucide="sparkles" class="gl-card-icon" style="width:24px;height:24px;color:var(--brand);"></i>
+              </div>
+              <h3 class="font-serif mb-3" style="font-size:24px;color:var(--ink);">糯米糍</h3>
+              <p class="text-sm leading-relaxed" style="color:var(--ink-2);">肉厚核小，软糯香甜，果形饱满，甜润入心。</p>
+            </article>
+            <article class="gl-variety-card r-lg p-6 flex flex-col" data-reveal style="transition-delay:300ms;">
+              <div class="flex items-center justify-between mb-5">
+                <span class="gl-tag r-md px-2.5 py-1 text-xs font-medium">早熟</span>
+                <i data-lucide="cherry" class="gl-card-icon" style="width:24px;height:24px;color:var(--brand);"></i>
+              </div>
+              <h3 class="font-serif mb-3" style="font-size:24px;color:var(--ink);">白糖罂</h3>
+              <p class="text-sm leading-relaxed" style="color:var(--ink-2);">清甜如蜜，汁多味纯，开季先锋，鲜甜开局。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 5. ORIGIN & STATS ============ -->
+      <section id="origin" class="py-20 lg:py-28" style="background:var(--surface-3);">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-14 lg:mb-16">
+            <div data-reveal>
+              <span class="gl-eyebrow inline-flex items-center gap-2 text-sm font-medium" style="color:var(--brand);">
+                <span class="gl-eyebrow-dot"></span>核心产区
+              </span>
+              <h2 class="font-serif mt-4" style="font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);text-wrap:balance;">产地溯源</h2>
+              <p class="mt-6 text-base lg:text-lg" style="color:var(--ink-2);line-height:1.9;">北纬21°，亚热带季风气候。年均气温23°C，日照充足，雨量丰沛。红壤微酸，正合荔枝脾性。高州根子镇，千年古荔成林，是中国荔枝的核心产区之一。</p>
+            </div>
+            <div data-reveal class="flex flex-col gap-4">
+              <div class="flex items-start gap-4 r-lg p-5" style="background:var(--surface);">
+                <i data-lucide="sun" style="width:24px;height:24px;color:var(--brand);flex-shrink:0;margin-top:2px;"></i>
+                <div>
+                  <div class="font-medium" style="color:var(--ink);">日照充足</div>
+                  <div class="text-sm mt-1" style="color:var(--ink-3);">年均气温23°C，光照丰沛</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 r-lg p-5" style="background:var(--surface);">
+                <i data-lucide="droplets" style="width:24px;height:24px;color:var(--brand);flex-shrink:0;margin-top:2px;"></i>
+                <div>
+                  <div class="font-medium" style="color:var(--ink);">雨量丰沛</div>
+                  <div class="text-sm mt-1" style="color:var(--ink-3);">亚热带季风，润泽万物</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 r-lg p-5" style="background:var(--surface);">
+                <i data-lucide="mountain" style="width:24px;height:24px;color:var(--brand);flex-shrink:0;margin-top:2px;"></i>
+                <div>
+                  <div class="font-medium" style="color:var(--ink);">红壤微酸</div>
+                  <div class="text-sm mt-1" style="color:var(--ink-3);">正合荔枝脾性，根深叶茂</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gl-stats-row" data-reveal id="stats-grid">
+            <div class="gl-stat-item">
+              <div class="font-serif" style="font-size:clamp(36px,4vw,52px);color:var(--brand);font-variant-numeric:tabular-nums;line-height:1;"><span class="gl-count" data-count="2000">0</span><span style="font-size:0.5em;">+</span></div>
+              <div class="text-sm mt-3" style="color:var(--ink-3);">年栽培史</div>
+            </div>
+            <div class="gl-stat-item">
+              <div class="font-serif" style="font-size:clamp(36px,4vw,52px);color:var(--brand);font-variant-numeric:tabular-nums;line-height:1;"><span class="gl-count" data-count="1000">0</span><span style="font-size:0.5em;">+</span></div>
+              <div class="text-sm mt-3" style="color:var(--ink-3);">棵千年古树</div>
+            </div>
+            <div class="gl-stat-item">
+              <div class="font-serif" style="font-size:clamp(36px,4vw,52px);color:var(--brand);font-variant-numeric:tabular-nums;line-height:1;"><span class="gl-count" data-count="80">0</span><span style="font-size:0.5em;">万亩</span></div>
+              <div class="text-sm mt-3" style="color:var(--ink-3);">种植面积</div>
+            </div>
+            <div class="gl-stat-item">
+              <div class="font-serif" style="font-size:clamp(36px,4vw,52px);color:var(--brand);font-variant-numeric:tabular-nums;line-height:1;"><span class="gl-count" data-count="24">0</span><span style="font-size:0.5em;">h</span></div>
+              <div class="text-sm mt-3" style="color:var(--ink-3);">冷链直达</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 6. PROCESS ============ -->
+      <section id="process" class="py-20 lg:py-28">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+            <span class="gl-eyebrow inline-flex items-center gap-2 text-sm font-medium" style="color:var(--brand);">
+              <span class="gl-eyebrow-dot"></span>锁鲜流程
+            </span>
+            <h2 class="font-serif mt-4" style="font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);text-wrap:balance;">鲜摘直达</h2>
+            <p class="mt-3 text-base" style="color:var(--ink-3);">从枝头到家门，24小时锁鲜。</p>
+          </div>
+          <div class="gl-process-flow grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+            <div class="gl-step flex flex-col items-center text-center" data-reveal style="transition-delay:0ms;">
+              <div class="gl-step-circle flex items-center justify-center mb-4" style="width:56px;height:56px;border-radius:var(--r-pill);background:var(--brand-tint);">
+                <i data-lucide="sunrise" style="width:26px;height:26px;color:var(--brand);"></i>
+              </div>
+              <div class="font-medium text-base mb-1" style="color:var(--ink);">凌晨采摘</div>
+              <div class="text-sm" style="color:var(--ink-3);">天亮前下枝，锁住鲜度</div>
+            </div>
+            <div class="gl-step flex flex-col items-center text-center" data-reveal style="transition-delay:100ms;">
+              <div class="gl-step-circle flex items-center justify-center mb-4" style="width:56px;height:56px;border-radius:var(--r-pill);background:var(--brand-tint);">
+                <i data-lucide="list-checks" style="width:26px;height:26px;color:var(--brand);"></i>
+              </div>
+              <div class="font-medium text-base mb-1" style="color:var(--ink);">分拣质检</div>
+              <div class="text-sm" style="color:var(--ink-3);">逐颗甄选，坏果剔除</div>
+            </div>
+            <div class="gl-step flex flex-col items-center text-center" data-reveal style="transition-delay:200ms;">
+              <div class="gl-step-circle flex items-center justify-center mb-4" style="width:56px;height:56px;border-radius:var(--r-pill);background:var(--brand-tint);">
+                <i data-lucide="snowflake" style="width:26px;height:26px;color:var(--brand);"></i>
+              </div>
+              <div class="font-medium text-base mb-1" style="color:var(--ink);">预冷锁鲜</div>
+              <div class="text-sm" style="color:var(--ink-3);">速降温至5°C，封存清甜</div>
+            </div>
+            <div class="gl-step flex flex-col items-center text-center" data-reveal style="transition-delay:300ms;">
+              <div class="gl-step-circle flex items-center justify-center mb-4" style="width:56px;height:56px;border-radius:var(--r-pill);background:var(--brand-tint);">
+                <i data-lucide="truck" style="width:26px;height:26px;color:var(--brand);"></i>
+              </div>
+              <div class="font-medium text-base mb-1" style="color:var(--ink);">冷链装车</div>
+              <div class="text-sm" style="color:var(--ink-3);">全程冷链，恒温运输</div>
+            </div>
+            <div class="gl-step flex flex-col items-center text-center" data-reveal style="transition-delay:400ms;">
+              <div class="gl-step-circle flex items-center justify-center mb-4" style="width:56px;height:56px;border-radius:var(--r-pill);background:var(--brand-tint);">
+                <i data-lucide="package-check" style="width:26px;height:26px;color:var(--brand);"></i>
+              </div>
+              <div class="font-medium text-base mb-1" style="color:var(--ink);">次日送达</div>
+              <div class="text-sm" style="color:var(--ink-3);">翌日到家，鲜如初摘</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 7. TESTIMONIALS ============ -->
+      <section id="voices" class="py-20 lg:py-28" style="background:var(--surface-2);">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+            <span class="gl-eyebrow inline-flex items-center gap-2 text-sm font-medium" style="color:var(--brand);">
+              <span class="gl-eyebrow-dot"></span>食客之声
+            </span>
+            <h2 class="font-serif mt-4" style="font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);text-wrap:balance;">食客口碑</h2>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="gl-quote-card r-lg p-7 flex flex-col" data-reveal style="transition-delay:0ms;">
+              <div class="r-md flex items-center justify-center mb-5" style="width:44px;height:44px;background:var(--brand-tint);">
+                <i data-lucide="quote" style="width:22px;height:22px;color:var(--brand);"></i>
+              </div>
+              <p class="text-base leading-relaxed flex-1" style="color:var(--ink);line-height:1.8;">皮薄肉厚，咬开满口清甜，核真的小。第二天就到，新鲜得像刚下枝。</p>
+              <div class="mt-5 pt-5 text-sm" style="border-top:1px solid var(--line);color:var(--ink-3);">张女士 · 广州</div>
+            </article>
+            <article class="gl-quote-card r-lg p-7 flex flex-col" data-reveal style="transition-delay:100ms;">
+              <div class="r-md flex items-center justify-center mb-5" style="width:44px;height:44px;background:var(--brand-tint);">
+                <i data-lucide="quote" style="width:22px;height:22px;color:var(--brand);"></i>
+              </div>
+              <p class="text-base leading-relaxed flex-1" style="color:var(--ink);line-height:1.8;">桂味的桂花香太绝了，家里老人小孩都爱吃，年年回购。</p>
+              <div class="mt-5 pt-5 text-sm" style="border-top:1px solid var(--line);color:var(--ink-3);">李先生 · 深圳</div>
+            </article>
+            <article class="gl-quote-card r-lg p-7 flex flex-col" data-reveal style="transition-delay:200ms;">
+              <div class="r-md flex items-center justify-center mb-5" style="width:44px;height:44px;background:var(--brand-tint);">
+                <i data-lucide="quote" style="width:22px;height:22px;color:var(--brand);"></i>
+              </div>
+              <p class="text-base leading-relaxed flex-1" style="color:var(--ink);line-height:1.8;">包装用心，冷链到位，开箱还是冰的，高州荔枝名不虚传。</p>
+              <div class="mt-5 pt-5 text-sm" style="border-top:1px solid var(--line);color:var(--ink-3);">陈女士 · 北京</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 8. CTA BAND ============ -->
+      <section id="cta-band" class="py-20 lg:py-24" style="background:var(--brand);">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8 text-center">
+          <h2 class="font-serif" style="font-size:clamp(32px,4vw,48px);line-height:1.2;color:var(--brand-ink);text-wrap:balance;" data-reveal>把千年荔乡的鲜甜带回家</h2>
+          <p class="mt-4 text-lg" style="color:var(--brand-ink);opacity:0.85;" data-reveal>现摘现发，冷链直达，季短莫错过。</p>
+          <div class="flex flex-wrap items-center justify-center gap-4 mt-10" data-reveal>
+            <a href="#" class="gl-btn-cta-primary inline-flex items-center gap-2 px-8 py-3.5 r-md text-base font-medium">
+              立即订购
+              <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+            </a>
+            <a href="#" class="gl-btn-cta-ghost inline-flex items-center gap-2 px-8 py-3.5 r-md text-base font-medium">
+              联系果农
+              <i data-lucide="phone" style="width:18px;height:18px;"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 9. FOOTER ============ -->
+      <footer class="pt-16 pb-8" style="background:var(--bg);border-top:1px solid var(--line);">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+            <div>
+              <div class="flex items-center gap-2 font-serif text-xl mb-3">
+                <i data-lucide="leaf" style="width:20px;height:20px;color:var(--brand);"></i>
+                <span style="color:var(--ink);">高州荔枝</span>
+              </div>
+              <p class="text-sm leading-relaxed" style="color:var(--ink-3);">千年荔乡 · 鲜摘直达。把岭南夏日的鲜甜，从枝头送到你家。</p>
+            </div>
+            <div>
+              <div class="text-sm font-medium mb-4" style="color:var(--ink);">产地</div>
+              <ul class="space-y-2 text-sm" style="color:var(--ink-3);">
+                <li>广东省高州市根子镇</li>
+                <li>北纬21° 亚热带产区</li>
+                <li>千年古荔成林</li>
+              </ul>
+            </div>
+            <div>
+              <div class="text-sm font-medium mb-4" style="color:var(--ink);">品种</div>
+              <ul class="space-y-2 text-sm" style="color:var(--ink-3);">
+                <li>妃子笑</li>
+                <li>桂味</li>
+                <li>糯米糍</li>
+                <li>白糖罂</li>
+              </ul>
+            </div>
+            <div>
+              <div class="text-sm font-medium mb-4" style="color:var(--ink);">联系</div>
+              <ul class="space-y-2 text-sm" style="color:var(--ink-3);">
+                <li class="flex items-center gap-2"><i data-lucide="phone" style="width:14px;height:14px;color:var(--brand);"></i> 0668-xxx-xxxx</li>
+                <li class="flex items-center gap-2"><i data-lucide="message-circle" style="width:14px;height:14px;color:var(--brand);"></i> 微信 gaozhou-lizhi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex items-center justify-center gap-2 mt-12 pt-6 text-sm" style="border-top:1px solid var(--line);color:var(--ink-3);">
+            <i data-lucide="leaf" style="width:14px;height:14px;color:var(--brand);"></i>
+            <span>© 2026 高州荔枝 · 千年荔乡</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <style id="page-dynamic">
+      /* ===== Color & token utility classes ===== */
+      .font-serif { font-family: var(--font-serif); }
+      .r-md { border-radius: var(--r-md); }
+      .r-lg { border-radius: var(--r-lg); }
+      .r-pill { border-radius: var(--r-pill); }
+
+      /* ===== Nav ===== */
+      #site-nav {
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        border-bottom: 1px solid transparent;
+      }
+      #site-nav .gl-brand-text { color: var(--surface); transition: color 0.3s ease; }
+      #site-nav.nav-scrolled {
+        background: var(--surface);
+        box-shadow: var(--shadow-1);
+        border-bottom: 1px solid var(--line);
+      }
+      #site-nav.nav-scrolled .gl-brand-text { color: var(--ink); }
+
+      .gl-nav-link {
+        position: relative;
+        color: var(--surface);
+        font-size: 15px;
+        transition: color 0.3s ease;
+        padding-bottom: 2px;
+      }
+      #site-nav.nav-scrolled .gl-nav-link { color: var(--ink-2); }
+      .gl-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--brand);
+        transition: width 0.3s ease;
+      }
+      .gl-nav-link:hover::after { width: 100%; }
+      .gl-nav-link:hover { color: var(--brand); }
+
+      /* ===== Buttons ===== */
+      .gl-btn-primary {
+        background: var(--brand);
+        color: var(--brand-ink);
+        border-radius: var(--r-md);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .gl-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+      .gl-btn-primary:hover i { transform: translateX(3px); }
+      .gl-btn-primary i { transition: transform 0.2s ease; }
+
+      .gl-btn-ghost-hero {
+        background: transparent;
+        color: var(--surface);
+        border: 1px solid color-mix(in srgb, var(--surface) 60%, transparent);
+        border-radius: var(--r-md);
+        transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .gl-btn-ghost-hero:hover {
+        transform: translateY(-2px);
+        background: color-mix(in srgb, var(--surface) 12%, transparent);
+        border-color: var(--surface);
+      }
+
+      .gl-btn-cta-primary {
+        background: var(--brand-ink);
+        color: var(--brand);
+        border-radius: var(--r-md);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .gl-btn-cta-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+      .gl-btn-cta-primary i { transition: transform 0.2s ease; }
+      .gl-btn-cta-primary:hover i { transform: translateX(3px); }
+
+      .gl-btn-cta-ghost {
+        background: transparent;
+        color: var(--brand-ink);
+        border: 1px solid color-mix(in srgb, var(--brand-ink) 60%, transparent);
+        border-radius: var(--r-md);
+        transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .gl-btn-cta-ghost:hover {
+        transform: translateY(-2px);
+        background: color-mix(in srgb, var(--brand-ink) 12%, transparent);
+        border-color: var(--brand-ink);
+      }
+
+      /* ===== Hero ===== */
+      .gl-hero-overlay {
+        background: linear-gradient(180deg,
+          color-mix(in srgb, var(--ink) 55%, transparent) 0%,
+          color-mix(in srgb, var(--ink) 25%, transparent) 50%,
+          var(--bg) 100%);
+      }
+      .gl-hero-img {
+        transform: translateY(var(--py, 0px)) translate(var(--mx, 0px), var(--my, 0px)) rotate(var(--mr, 0deg));
+        transition: transform 0.12s ease-out;
+      }
+
+      /* Hero entrance animation */
+      .gl-hero-eyebrow {
+        opacity: 0;
+        animation: glFadeUp 0.7s ease forwards;
+        animation-delay: 0.2s;
+      }
+      .gl-hero-title {
+        opacity: 0;
+        animation: glFadeUp 0.8s ease forwards;
+        animation-delay: 0.4s;
+      }
+      .gl-hero-subtitle {
+        opacity: 0;
+        animation: glFadeUp 0.7s ease forwards;
+        animation-delay: 0.65s;
+      }
+      .gl-hero-cta {
+        opacity: 0;
+        animation: glFadeUp 0.7s ease forwards;
+        animation-delay: 0.85s;
+      }
+      @keyframes glFadeUp {
+        from { opacity: 0; transform: translateY(28px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Scroll cue bounce */
+      .gl-scroll-cue {
+        animation: glBounce 2s ease-in-out infinite;
+      }
+      @keyframes glBounce {
+        0%, 100% { transform: translate(-50%, 0); }
+        50% { transform: translate(-50%, 10px); }
+      }
+
+      /* ===== Marquee ===== */
+      .gl-marquee-track {
+        animation: glMarquee 30s linear infinite;
+      }
+      .gl-marquee-band:hover .gl-marquee-track {
+        animation-play-state: paused;
+      }
+      @keyframes glMarquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      /* ===== Eyebrow ===== */
+      .gl-eyebrow-dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: var(--r-pill);
+        background: var(--brand);
+      }
+
+      /* ===== Story image ===== */
+      .gl-story-img-wrap {
+        transform: rotate(1.5deg);
+        transition: transform 0.5s ease;
+      }
+      .gl-story-img-wrap:hover {
+        transform: rotate(0deg);
+      }
+
+      /* ===== Variety cards ===== */
+      .gl-variety-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow-1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      .gl-variety-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-2);
+        border-color: var(--brand-tint-2);
+      }
+      .gl-card-icon {
+        transition: transform 0.3s ease;
+      }
+      .gl-variety-card:hover .gl-card-icon {
+        transform: scale(1.12) rotate(-4deg);
+      }
+      .gl-tag {
+        background: var(--brand-tint);
+        color: var(--brand);
+        border-radius: var(--r-md);
+      }
+
+      /* ===== Stats ===== */
+      .gl-stats-row {
+        border-top: 1px solid var(--line-2);
+        border-bottom: 1px solid var(--line-2);
+      }
+      .gl-stat-item {
+        padding: 28px 20px;
+        text-align: center;
+        border-right: 1px solid var(--line);
+      }
+      .gl-stat-item:last-child { border-right: none; }
+      .gl-stat-item:nth-child(odd) {
+        border-bottom: 1px solid var(--line);
+      }
+      @media (min-width: 1024px) {
+        .gl-stat-item:nth-child(odd) { border-bottom: none; }
+        .gl-stat-item:nth-child(3) { border-right: 1px solid var(--line); }
+      }
+
+      /* ===== Process steps ===== */
+      .gl-step { position: relative; }
+      .gl-step-circle {
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .gl-step:hover .gl-step-circle {
+        transform: scale(1.08);
+        box-shadow: var(--shadow-2);
+      }
+      @media (min-width: 1024px) {
+        .gl-step:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          top: 28px;
+          left: calc(50% + 32px);
+          width: calc(100% - 64px);
+          height: 1px;
+          background: var(--line-2);
+          z-index: 0;
+        }
+      }
+
+      /* ===== Quote cards ===== */
+      .gl-quote-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow-1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .gl-quote-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-2);
+      }
+
+      /* ===== Scroll reveal ===== */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== Reduced motion ===== */
+      @media (prefers-reduced-motion: reduce) {
+        .gl-hero-eyebrow, .gl-hero-title, .gl-hero-subtitle, .gl-hero-cta {
+          opacity: 1;
+          animation: none;
+        }
+        .gl-scroll-cue { animation: none; }
+        .gl-marquee-track { animation: none; }
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .gl-hero-img { transition: none; }
+        * { scroll-behavior: auto; }
+      }
+
+      /* ===== Overflow guard ===== */
+      html, body { overflow-x: hidden; }
+    </style>
+
+    <script>
+      (function () {
+        'use strict';
+        try {
+          /* ---- 1. Sticky nav scroll state ---- */
+          var nav = document.getElementById('site-nav');
+          function onScrollNav() {
+            if (!nav) return;
+            if (window.scrollY > 40) {
+              nav.classList.add('nav-scrolled');
+            } else {
+              nav.classList.remove('nav-scrolled');
+            }
+          }
+          window.addEventListener('scroll', onScrollNav, { passive: true });
+          onScrollNav();
+
+          /* ---- 4 & 5. Hero parallax + mouse-follow ---- */
+          var heroImg = document.getElementById('hero-bg');
+          var hero = document.getElementById('hero');
+          var rafParallax = null;
+          var rafMouse = null;
+          var lastMouseX = 0, lastMouseY = 0;
+
+          if (heroImg && hero) {
+            function applyParallax() {
+              rafParallax = null;
+              var sy = window.scrollY;
+              var offset = sy * 0.3;
+              if (sy < window.innerHeight) {
+                heroImg.style.setProperty('--py', offset + 'px');
+              }
+            }
+            window.addEventListener('scroll', function () {
+              if (rafParallax) return;
+              rafParallax = requestAnimationFrame(applyParallax);
+            }, { passive: true });
+
+            function applyMouse() {
+              rafMouse = null;
+              var rect = hero.getBoundingClientRect();
+              var cx = rect.width / 2;
+              var cy = rect.height / 2;
+              var dx = (lastMouseX - cx) * 0.02;
+              var dy = (lastMouseY - cy) * 0.02;
+              var rot = (lastMouseX - cx) * 0.008;
+              heroImg.style.setProperty('--mx', dx + 'px');
+              heroImg.style.setProperty('--my', dy + 'px');
+              heroImg.style.setProperty('--mr', rot + 'deg');
+            }
+            hero.addEventListener('mousemove', function (e) {
+              lastMouseX = e.clientX;
+              lastMouseY = e.clientY;
+              if (rafMouse) return;
+              rafMouse = requestAnimationFrame(applyMouse);
+            });
+            hero.addEventListener('mouseleave', function () {
+              heroImg.style.setProperty('--mx', '0px');
+              heroImg.style.setProperty('--my', '0px');
+              heroImg.style.setProperty('--mr', '0deg');
+            });
+          }
+
+          /* ---- 3. Scroll reveal (IntersectionObserver) ---- */
+          var revealEls = document.querySelectorAll('[data-reveal]');
+          if ('IntersectionObserver' in window && revealEls.length) {
+            var revealObs = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  revealObs.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            revealEls.forEach(function (el) { revealObs.observe(el); });
+          } else {
+            revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+          }
+
+          /* ---- 6. Count-up KPIs ---- */
+          var countEls = document.querySelectorAll('.gl-count');
+          var statsGrid = document.getElementById('stats-grid');
+          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          function animateCount(el) {
+            var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+            if (reduceMotion) {
+              el.textContent = String(target);
+              return;
+            }
+            var duration = 1600;
+            var startTime = null;
+            function ease(t) {
+              /* cubic-bezier(.3,0,0,1) approximation */
+              return 1 - Math.pow(1 - t, 3);
+            }
+            function step(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var val = Math.round(ease(progress) * target);
+              el.textContent = String(val);
+              if (progress < 1) {
+                requestAnimationFrame(step);
+              } else {
+                el.textContent = String(target);
+              }
+            }
+            requestAnimationFrame(step);
+          }
+
+          if (statsGrid && 'IntersectionObserver' in window) {
+            var countObs = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  countEls.forEach(function (el) { animateCount(el); });
+                  countObs.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.3 });
+            countObs.observe(statsGrid);
+          } else {
+            countEls.forEach(function (el) { animateCount(el); });
+          }
+
+          /* ---- Smooth anchor scroll ---- */
+          document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+              var href = a.getAttribute('href');
+              if (href === '#' || href.length < 2) return;
+              var target = document.querySelector(href);
+              if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+              }
+            });
+          });
+        } catch (err) {
+          /* fail silently — never break the page */
+          if (typeof console !== 'undefined' && console.warn) {
+            console.warn('dynamic-effects error:', err);
+          }
+        }
+      })();
+    </script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
